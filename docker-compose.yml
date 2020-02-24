@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  server:
+    build: .
+    environment:
+     - EXTERNAL_ADDR=10.254.254.201
+    networks:
+      the_net:
+          ipv4_address: 10.254.254.201
+networks:
+  the_net:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.254.254.0/24
